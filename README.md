@@ -7,12 +7,10 @@
 # Cheshire & Merseyside Cancer Alliance Hysteroscopy Pathway Modelling
 This repository contains the codebase for the modelling of the proposed re-designed Hysteroscopy pathway. This model has been developed in R, details on the structure of the repository and how to amend and run the model are detailed below.
 
-<br/>
 
 ## Using the Repository
 The repository can be cloned to run the pathway model. Changing the inputs in the `config` folder will enable alternate scenarios of the pathway to be run.
 
-<br/>
 
 ## Repository Structure
 
@@ -21,6 +19,9 @@ The structure of this repository is detailed below:
 ``` plaintext
 
 ├───data
+├───documentation
+    ├───guidance
+    └───project_documentation
 ├───images
     ├───logos
     └───pathway
@@ -36,10 +37,11 @@ The structure of this repository is detailed below:
 
 ```
 
-<br/>
-
 ### `data`
 To contain any datasets received from the client to support the model build or underpinning assumptions.
+
+### `documentation`
+Contains the project documentation such as specification of the model within the `project_documentation` folder. The `guidance` folder contains information on model structure and how to run.
 
 ### `images`
 Images such as TU logos and branding to add to outputs are contained in the `logos` folder. The `pathway` folder hosts the **draw.io** outputs of the proposed pathway that has been modelled.
@@ -55,7 +57,9 @@ All code is stored in src. This is subdivided into six modules:
 5. `processing`: Processing steps such as cleaning or feature creation on any data loaded into the model are stored here.
 6. `requirements`: The requirements folder stores the `packages.R` file containing the list of packages required to run the model.
 
-<br/>
+## Proposed Pathway to Model
+
+Placeholder for the map of the _to-be_ pathway.
 
 ## Contributors
 This repository has been created and developed by:
