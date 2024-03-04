@@ -17,8 +17,9 @@ This specification provides an overview of the modelling requirements for a dema
 ## Model Structure
 The structure of the model is defined as:
 
+<img src="../../images/pathway/proposed_pathway.drawio.svg" alt="TU logo" width="100%" align="left"/>
 
-
+<br/>
 
 ## Model Parameters
 The parameters for the model will principally be defined via the data received from the client. Where the these parameters can't be defined via these datasets there will be agreement with key stakeholders as to the values any input assumptions need to take.
@@ -40,3 +41,14 @@ The model outputs will be displayed in a `outputs.html` file created via a `mode
 The model objects will be designed and created by [Andy Wilson](https://github.com/ASW-Analyst) with development from [Elliot Royle](https://github.com/elliotroyle). Andy Wilson will be responsible for assuring the outputs of the model prior to review by the client.
 
 ## Milestones
+The model will be constructed to the following timeline. This is on the basis of the final pathway confirmed at the earliest opportunity and with minimal amendments:
+
+| Task                              | Date             |
+|:----------------------------------|:-----------------|
+| Confirm pathway model             | Tuesday 05/03/2024   |
+| Confirm constraints and requirements | Tuesday 05/03/2024 |
+| Confirm assumptions required      | Tuesday 12/03/2024 |
+| Complete input and config scripts | Friday 15/03/2024  |
+| Complete modelling scripts        | Wednesday 20/03/2024  |
+| Complete model output scripts     | Wednesday 27/03/2024   |
+| Share final model deliverables    | Thursday 28/03/2024 |
