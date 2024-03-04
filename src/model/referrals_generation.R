@@ -8,7 +8,7 @@ referral_list <- list()
 
 for (i in seq_along(weeks)) {
 
-  referrals <- round(rnorm(1, mean = 115, sd = 18))
+  referrals <- round(rnorm(1, mean = ref_mean, sd = ref_sd))
   week_referrals <- data.frame(Week = rep(weeks[i], referrals), Referral_ID = seq_len(referrals)) %>%
     mutate(days_add_prob = runif(n()),
            days_add = case_when(days_add_prob < ref_day_week_probs_cum[1] ~ 0,
