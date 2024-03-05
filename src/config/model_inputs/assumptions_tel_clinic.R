@@ -9,4 +9,4 @@ tel_dna_2 <- 0.50
 tel_dis_tel <- 0.05
 tel_dis_f2f <- 0.35
 tel_rac <- 0.446
-tel_hyst_amb <- 0.154
+tel_hyst_amb <- 1 - sum(tel_dis_tel, tel_dis_f2f, tel_rac)
