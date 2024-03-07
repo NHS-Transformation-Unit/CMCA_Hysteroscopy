@@ -1,4 +1,10 @@
+
+# Define Weeks for Model Run ----------------------------------------------
+
 weeks <- seq(start_date, end_date, by = "week")
+
+
+# Simulate Referrals ------------------------------------------------------
 
 trials_referral_list <- list()
 
