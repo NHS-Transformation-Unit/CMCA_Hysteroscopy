@@ -3,6 +3,7 @@ packages <- c("here",
               "readxl",
               "htmltools",
               "knitr",
-              "kableExtra")
+              "kableExtra",
+              "scales")
 
 lapply(packages, library, character.only=TRUE)
