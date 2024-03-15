@@ -59,7 +59,9 @@ All code is stored in src. This is subdivided into six modules:
 
 ## Proposed Pathway to Model
 
-Placeholder for the map of the _to-be_ pathway.
+The pathway below represents the _to-be_ pathway that is being modelled:
+
+<img src="images/pathway/proposed_pathway.drawio.svg" alt="Proposed Pathway"/>
 
 ## Contributors
 This repository has been created and developed by:
