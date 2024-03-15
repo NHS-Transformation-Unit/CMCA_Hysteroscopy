@@ -41,7 +41,7 @@ tel_clinic_outcome_hist_chart <- ggplot(data = tel_clinic_outcome_hist, aes(x = 
   facet_wrap(~outcome_clean, scales = "free_x") +
   labs(x = "Total Clinic Appointments",
        y = "Number of Trials",
-       title = "Distribution of Clinic Appointments in Year",
+       title = "Distribution of Clinic Outcomes in Year",
        sutitle = "Histogram of Appointments Required",
        caption = "Model Output") +
   theme_tu_white(hex_col = "#407EC9")
