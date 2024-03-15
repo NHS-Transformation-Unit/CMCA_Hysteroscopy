@@ -1,7 +1,6 @@
 ---
-title: |
-  | Hysteroscopy Pathway Simulation
-  | Model Outputs
+title: Hysteroscopy Pathway Simulation
+subtitle: Model Outputs
 author: "<a href='https://github.com/ASW-Analyst'>Andy Wilson</a><br><a href='https://transformationunit.nhs.uk/'>NHS Transformation Unit</a>"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
@@ -34,22 +33,28 @@ htmltools::img(src = knitr::image_uri(paste0(here(), "/images/logos/TU_logo_larg
 ```
 
 ## Introduction
+***
 
+This report contains the outputs of the Hysteroscopy Pathway Model. This model has been developed to understand how patients will flow along the new proposed Hysteroscopy Pathway. The model is a Discrete Event Simulation (DES) model that represents each patient as an individual entity. The patient progresses through various stages and will be randomised to a potential outcome at each stage based on underlying assumptions. These assumptions are input into the model by the user and represent the probability of an outcome at each of the stage. For example, the probability of a patient being listed for an ambulatory procedure at the telephone triage appointment.
+
+Outputs from each stage of the pathway are shown in the sections below demonstrating the amount of activity projected and the outcomes following the activity. This model has been simulated for `r trials` model runs so the distribution of the range of possible outcomes at each stage is also shown through a histogram and summary statistics.
 
 <br/>
 
 ## Referrals {.tabset .tabset-fade}
+***
 
 ### Summary of Referrals
+Referrals are simulated into the pathway by generating a sample for each week of the year. This sampling is based on the weekly referrals being normally distributed with an average number of weekly referrals of `r ref_mean` and a standard deviation of `r ref_sd` referrals.
 
-Across all of the simulations there are a median of `r referrals_summary[[1, 1]]` each year.
+Across all of the simulations there are a median of **`r label_comma()(referrals_summary[[1, 1]])`** each year with an interquartile range from `r label_comma()(referrals_summary[[1, 2]])` to `r label_comma()(referrals_summary[[1, 3]])`.
 
 <br/>
 
 ### Distribution of Referrals
 As the pathway is simulated multiple times this will create a range of possible outcomes and activity along the pathway. The chart below shows the distribution of referrals that are generated each year from all of the model runs.
 
-```{r test, out.width='100%'}
+```{r ref_dist, out.width='100%'}
 
 referrals_hist_chart
 
@@ -57,3 +62,147 @@ referrals_hist_chart
 
 <br/>
 
+## Scanning {.tabset .tabset-fade}
+***
+
+### Summary of Scanning Activity
+
+Following their referral a subset of patients would require a scan before their referral is triaged and they attend the Telephone Clinic. Accounting for DNAs of scanning appointments the median activity across all of the simulations projected **`r label_comma()(scan_summary[[1,1]])`** scans required each year. The interquartile range of scanning activity are projected to be `r label_comma()(scan_summary[[1, 2]])` to `r label_comma()(scan_summary[[1, 3]])`.
+
+<br/>
+
+### Distribution of Scanning Requirements
+As the pathway is simulated multiple times this will create a range of possible outcomes and activity along the pathway. The chart below shows the distribution of scanning requirements each year from all of the model runs.
+
+```{r scan_dist, out.width='100%'}
+
+scan_hist_chart
+
+```
+
+
+<br/>
+
+## Telephone Clinic {.tabset .tabset-fade}
+***
+
+Patients then attend a Telephone Clinic Appointment to determine if they are to be discharged, are to be referred to the Rapid Access Clinic or are to be listed for an ambulatory hysteroscopy. This section provides an overview of the clinic activity and outcomes projected by the model.
+
+### Summary of Telephone Clinic Activity
+Following the referral and any necessary scans the patient will attend a telephone clinic. Including the impact of DNA rates the median telephone clinic appointments during the year is projected to be **`r  label_comma()(tel_clinic_summary[[1, 1]])`**. The interquartile range for the model runs predicts between `r label_comma()(tel_clinic_summary[[1, 2]])` and `r label_comma()(tel_clinic_summary[[1, 3]])` telephone appointments.
+
+
+<br/>
+
+### Distribution of Telephone Clinic Activity
+As the pathway is simulated multiple times this will create a range of possible outcomes and activity along the pathway. The chart below shows the distribution of telephone clinic appointments that are required each year from all of the model runs.
+
+```{r tel_clinic_activity_dist, out.width='100%'}
+
+tel_clinic_hist_chart
+
+```
+
+<br/>
+
+### Summary of Clinic Outcomes
+At the telephone clinic patients are modelled to one of four possible outcomes. The summary below shows the median number of patients modelled to each outcome, with the interquartile range shown in brackets:
+
+* `r label_comma()(tel_clinic_outcome_summary[[1, 2]])` (`r label_comma()(tel_clinic_outcome_summary[[1, 3]])` - `r label_comma()(tel_clinic_outcome_summary[[1, 4]])`) patients are listed for an ambulatory hysteroscopy.
+* `r label_comma()(tel_clinic_outcome_summary[[2, 2]])` (`r label_comma()(tel_clinic_outcome_summary[[2, 3]])` - `r label_comma()(tel_clinic_outcome_summary[[2, 4]])`) will be discharged at a Face to Face appointment.
+* `r label_comma()(tel_clinic_outcome_summary[[3, 2]])` (`r label_comma()(tel_clinic_outcome_summary[[3, 3]])` - `r label_comma()(tel_clinic_outcome_summary[[3, 4]])`) will be seen at the Rapid Access Clinic.
+* `r label_comma()(tel_clinic_outcome_summary[[4, 2]])` (`r label_comma()(tel_clinic_outcome_summary[[4, 3]])` - `r label_comma()(tel_clinic_outcome_summary[[4, 4]])`) will be discharged during the telephone clinic.
+
+<br/>
+
+### Distribution of Outcomes
+The chart below shows the distribution of telephone clinic outcomes for the year from all of the model runs.
+
+```{r tel_clinic_outcome_dist, out.width='100%'}
+
+tel_clinic_outcome_hist_chart
+
+```
+
+<br/>
+
+## Rapid Access Clinic {.tabset .tabset-fade}
+***
+
+Some of the patients from the telephone clinic will be referred to a Rapid Access Clinic. This section provides an overview of the activity and the clinic outcomes projected from the model.
+
+### Summary of RAC Activity
+The RAC appointments during the year are projected to be **`r  label_comma()(rac_hist_summary[[1, 1]])`**. The interquartile range for the model runs predicts between `r label_comma()(rac_hist_summary[[1, 2]])` and `r label_comma()(rac_hist_summary[[1, 3]])` RAC appointments.
+
+<br/>
+
+### Distribution of RAC Activity
+The chart below shows the distribution of RAC appointment activity based on all of the model runs.
+
+```{r rac_activity_dist, out.width='100%'}
+
+rac_hist_chart
+
+```
+
+
+<br/>
+
+### Summary of RAC Outcomes
+At the RAC patients are modelled to one of two possible outcomes. The summary below shows the median number of patients modelled to each outcome, with the interquartile range shown in brackets:
+
+* `r label_comma()(rac_outcomes_hist_summary[[1, 2]])` (`r label_comma()(rac_outcomes_hist_summary[[1, 3]])` - `r label_comma()(rac_outcomes_hist_summary[[1, 4]])`) patients are listed for a hysteroscopy.
+* `r label_comma()(rac_outcomes_hist_summary[[2, 2]])` (`r label_comma()(rac_outcomes_hist_summary[[2, 3]])` - `r label_comma()(rac_outcomes_hist_summary[[2, 4]])`) patients are listed for a pipelle.
+
+<br/>
+
+### Distribution of RAC Outcomes
+The chart below shows the distributions of the model runs for patients seen at the RAC clinic.
+
+```{r rac_outcome_dist, out.width='100%'}
+
+rac_outcomes_hist_chart
+
+```
+
+<br/>
+
+## Hysteroscopies {.tabset .tabset-fade}
+***
+
+The patients that require a hysteroscopy will either have this as an ambulatory procedure or will require an elective admission with the procedure performed under General Anaesthetic. This section provides an overview of the total number of hysteroscopies projected by the model and split between the two settings. This will also include the activity for patients listed for hysteroscopy in an ambulatory setting at the Telephone Clinic stage.
+
+### Summary of Hysteroscopies
+The total hysteroscopies during the year are projected to be **`r  label_comma()(hyst_hist_summary[[1, 1]])`**. The interquartile range for the model runs predicts between `r label_comma()(hyst_hist_summary[[1, 2]])` and `r label_comma()(hyst_hist_summary[[1, 3]])` hysteroscopies.
+
+<br/>
+
+### Distribution of Hysteroscopies
+The chart below shows the distribution of total hysteroscopy activity for all of the model runs.
+
+```{r hyst_activity_dist, out.width='100%'}
+
+hyst_hist_chart
+
+```
+
+<br/>
+
+### Summary of Hysteroscopy Outcomes
+Patients can receive a hysteroscopy in two different settings. The summary below shows the median number of patients modelled to each outcome, with the interquartile range shown in brackets:
+
+* `r label_comma()(hyst_settings_hist_summary[[1, 2]])` (`r label_comma()(hyst_settings_hist_summary[[1, 3]])` - `r label_comma()(hyst_settings_hist_summary[[1, 4]])`) patients are listed for an ambulatory hysteroscopy.
+* `r label_comma()(hyst_settings_hist_summary[[2, 2]])` (`r label_comma()(hyst_settings_hist_summary[[2, 3]])` - `r label_comma()(hyst_settings_hist_summary[[2, 4]])`) patients are listed for an elective GA hysteroscopy.
+
+<br/>
+
+### Distribution of Hysteroscopy Settings
+The chart below shows the distribution of hysteroscopies by setting across all of the model runs.
+
+```{r hyst_settings_dist, out.width='100%'}
+
+hyst_settings_hist_chart
+
+```
+
+<br/>
