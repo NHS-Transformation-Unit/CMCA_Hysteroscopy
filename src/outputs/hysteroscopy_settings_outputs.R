@@ -10,7 +10,7 @@ hyst_hist_chart <- ggplot(data = hyst_hist, aes(x = Total))+
   labs(x = "Total Hysteroscopies in Year",
        y = "Number of Trials",
        title = "Distribution of Hysteroscopies in Year",
-       sutitle = "Histogram of Hysteroscopies Required",
+       subtitle = "Histogram of Hysteroscopies Required",
        caption = "Model Output") +
   theme_tu_white(hex_col = "#407EC9")
 
@@ -37,7 +37,7 @@ hyst_settings_hist_chart <- ggplot(data = hyst_settings_hist, aes(x = Total))+
   labs(x = "Total Hysteroscopies in Year",
        y = "Number of Trials",
        title = "Distribution of Hysteroscopies in Year by Setting",
-       sutitle = "Histogram of Hysteroscopies Required",
+       subtitle = "Histogram of Hysteroscopies Required",
        caption = "Model Output") +
   theme_tu_white(hex_col = "#407EC9")
 

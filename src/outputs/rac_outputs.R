@@ -10,7 +10,7 @@ rac_hist_chart <- ggplot(data = rac_hist, aes(x = Total))+
   labs(x = "Total RAC Appointments",
        y = "Number of Trials",
        title = "Distribution of RAC Appointments in Year",
-       sutitle = "Histogram of RAC Appointments Required",
+       subtitle = "Histogram of RAC Appointments Required",
        caption = "Model Output") +
   theme_tu_white(hex_col = "#407EC9")
 
@@ -36,7 +36,7 @@ rac_outcomes_hist_chart <- ggplot(data = rac_outcomes_hist, aes(x = Total))+
   labs(x = "Total RAC Appointments",
        y = "Number of Trials",
        title = "Distribution of RAC Appointments in Year by Outcome",
-       sutitle = "Histogram of Outcomes",
+       subtitle = "Histogram of Outcomes",
        caption = "Model Output") +
   theme_tu_white(hex_col = "#407EC9")
 
