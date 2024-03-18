@@ -10,7 +10,7 @@ tel_clinic_hist_chart <- ggplot(data = tel_clinic_hist, aes(x = Total))+
   labs(x = "Total Clinic Appointments",
        y = "Number of Trials",
        title = "Distribution of Clinic Appointments in Year",
-       sutitle = "Histogram of Appointments Required",
+       subtitle = "Histogram of Appointments Required",
        caption = "Model Output") +
   theme_tu_white(hex_col = "#407EC9")
 
@@ -42,7 +42,7 @@ tel_clinic_outcome_hist_chart <- ggplot(data = tel_clinic_outcome_hist, aes(x = 
   labs(x = "Total Clinic Appointments",
        y = "Number of Trials",
        title = "Distribution of Clinic Outcomes in Year",
-       sutitle = "Histogram of Appointments Required",
+       subtitle = "Histogram of Appointments Required",
        caption = "Model Output") +
   theme_tu_white(hex_col = "#407EC9")
 

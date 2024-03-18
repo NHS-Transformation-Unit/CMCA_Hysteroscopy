@@ -10,7 +10,7 @@ referrals_hist_chart <- ggplot(data = referrals_hist, aes(x = Total))+
   labs(x = "Total Referrals",
        y = "Number of Trials",
        title = "Distribution of Total Referrals in Year",
-       sutitle = "Histogram of Referrals",
+       subtitle = "Histogram of Referrals",
        caption = "Model Output") +
   theme_tu_white(hex_col = "#407EC9")
   

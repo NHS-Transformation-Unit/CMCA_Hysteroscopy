@@ -10,7 +10,7 @@ scan_hist_chart <- ggplot(data = scan_hist, aes(x = Total))+
   labs(x = "Total Scans",
        y = "Number of Trials",
        title = "Distribution of Scans in Year",
-       sutitle = "Histogram of Scans Required",
+       subtitle = "Histogram of Scans Required",
        caption = "Model Output") +
   theme_tu_white(hex_col = "#407EC9")
 
